@@ -1,0 +1,77 @@
+package edu.towson.cis.cosc442.project2.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class VendingMachineTest {
+	VendingMachine vm;
+	VendingMachineItem vmIA;
+	VendingMachineItem vmIB;
+	VendingMachineItem vmIC;
+	VendingMachineItem vmID;
+	@Before
+	public void setUp() throws Exception {
+		vm = new VendingMachine();
+		vmIA = new VendingMachineItem("Skittles",1.75);
+		vmIB = new VendingMachineItem("Donuts",2.50);
+		vmIC = new VendingMachineItem("Gum", 1.25);
+		vmID = new VendingMachineItem("Apple",.75);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		vm = null;
+		vmIA = null;
+		vmIB = null;
+		vmIC = null;
+		vmID = null;
+	}
+
+	@Test
+	public void testAddItem() {
+		
+		//Precondition to make sure the item array is empty
+		if(vm.getItem("A")!=null||vm.getItem("B")!=null||vm.getItem("C")!=null||vm.getItem("D")!=null){
+			
+			fail("The item in the list should be empty after constructor call");
+		}
+		vm.addItem(vmIA, "A");
+		assertEquals(vm.getItem("A").getName(),"Skittles");
+		vm.addItem(vmIB, "B");
+		assertEquals(vm.getItem("B").getName(),"Donuts");
+		vm.addItem(vmIC, "C");
+		assertEquals(vm.getItem("C").getName(),"Gum");
+		vm.addItem(vmIC, "D");
+		assertEquals(vm.getItem("D").getName(),"Apple");
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	public void testRemoveItem() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testInsertMoney() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetBalance() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMakePurchase() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testReturnChange() {
+		fail("Not yet implemented");
+	}
+
+}
